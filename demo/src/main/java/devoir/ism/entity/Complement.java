@@ -5,11 +5,13 @@ public class Complement {
     private int id;
     private String nom;
     private double prix;
+    private String image;
 
-    public Complement(int id, String nom, double prix) {
+    public Complement(int id, String nom, double prix, String image) {
         this.id = id;
         this.nom = nom;
         this.prix = prix;
+        this.image = image;
     }
 
     public int getId() {
@@ -22,6 +24,10 @@ public class Complement {
 
     public double getPrix() {
         return prix;
+    }
+
+    public String getImage() {
+        return image;
     }
 
     @Override
