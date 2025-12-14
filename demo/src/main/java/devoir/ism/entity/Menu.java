@@ -1,31 +1,43 @@
 package devoir.ism.entity;
 
-import java.util.List;
-
 public class Menu {
 
     private int id;
     private String nom;
     private Burger burger;
-    private List<Complement> complements;
+    private double prix; // prix fixé par le gestionnaire
+    private String image;
 
-    public Menu(int id, String nom, Burger burger, List<Complement> complements) {
+    public Menu(int id, String nom, Burger burger, double prix, String image) {
         this.id = id;
         this.nom = nom;
         this.burger = burger;
-        this.complements = complements;
+        this.prix = prix;
+        this.image = image;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public Burger getBurger() {
+        return burger;
     }
 
     public double getPrix() {
-        double total = burger.getPrix();
-        for (Complement c : complements) {
-            total += c.getPrix();
-        }
-        return total;
+        return prix;
+    }
+
+    public String getImage() {
+        return image;
     }
 
     @Override
     public String toString() {
-        return nom + " - " + getPrix() + " FCFA";
+        return nom + " - " + prix + " FCFA";
     }
 }
