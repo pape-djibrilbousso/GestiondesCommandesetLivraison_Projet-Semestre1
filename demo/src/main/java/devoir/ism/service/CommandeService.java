@@ -1,42 +1,30 @@
 package devoir.ism.service;
 
-import devoir.ism.entity.*;
+import devoir.ism.entity.Commande;
+import devoir.ism.entity.EtatCommande;
 import devoir.ism.repository.CommandeRepository;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 public class CommandeService {
 
     private final CommandeRepository commandeRepository;
+    private final PaymentService paymentService;
 
-    public CommandeService(CommandeRepository commandeRepository) {
+    public CommandeService(CommandeRepository commandeRepository,
+                           PaymentService paymentService) {
         this.commandeRepository = commandeRepository;
+        this.paymentService = paymentService;
     }
 
-    public Commande creerCommande(Client client,
-                                  double prixProduits,
-                                  List<Complement> complements,
-                                  TypeCommande type) {
+    public void payerCommande(Commande commande) {
 
-        double total = prixProduits;
+        boolean paiementOK = paymentService.effectuerPaiement(commande);
 
-        if (complements != null) {
-            for (Complement c : complements) {
-                total += c.getPrix();
-            }
+        if (paiementOK) {
+            commande.setEtat(EtatCommande.PAYEE);
+        } else {
+            commande.setEtat(EtatCommande.ANNULEE);
         }
 
-        Commande commande = new Commande(
-                0,
-                client,
-                total,
-                EtatCommande.EN_COURS,
-                type,
-                LocalDateTime.now(),
-                complements
-        );
-
-        return commandeRepository.save(commande);
+        commandeRepository.updateEtat(commande.getId(), commande.getEtat());
     }
 }
