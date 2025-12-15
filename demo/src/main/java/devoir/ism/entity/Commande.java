@@ -12,6 +12,7 @@ public class Commande {
     private TypeCommande type;
     private LocalDateTime dateCommande;
     private List<Complement> complements; // pour burger simple
+    private String livreur;
 
     public Commande(int id, Client client, double montant,
                     EtatCommande etat, TypeCommande type,
@@ -24,6 +25,7 @@ public class Commande {
         this.type = type;
         this.dateCommande = dateCommande;
         this.complements = complements;
+        this.livreur = livreur;
     }
 
     public int getId() {
@@ -56,5 +58,17 @@ public class Commande {
 
     public List<Complement> getComplements() {
         return complements;
+    }
+    
+    public String getLivreur() { 
+        return livreur; 
+    }
+    public void setLivreur(String livreur) { 
+        this.livreur = livreur; 
+    }
+
+    public void setMontant(double prix) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setMontant'");
     }
 }

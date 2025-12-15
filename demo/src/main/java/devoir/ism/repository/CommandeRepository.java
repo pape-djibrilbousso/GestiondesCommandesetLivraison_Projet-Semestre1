@@ -62,4 +62,47 @@ public class CommandeRepository {
         }
         return null;
     }
+
+    public void updateEtat(int commandeId, EtatCommande etat) {
+    String sql = "UPDATE commande SET etat = ? WHERE id = ?";
+
+    try (Connection conn = DatabaseConfig.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setString(1, etat.name());
+        stmt.setInt(2, commandeId);
+        stmt.executeUpdate();
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
+    public void updateLivreur(int commandeId, String livreur) {
+    String sql = "UPDATE commande SET livreur = ? WHERE id = ?";
+    try (Connection conn = DatabaseConfig.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+        stmt.setString(1, livreur);
+        stmt.setInt(2, commandeId);
+        stmt.executeUpdate();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
+    public Commande getCommandeById(int id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getCommandeById'");
+    }
+
+    public List<Commande> getToutesCommandes() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getToutesCommandes'");
+    }
+
+    public void ajouterCommande(Commande commande) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'ajouterCommande'");
+    }
+
 }
