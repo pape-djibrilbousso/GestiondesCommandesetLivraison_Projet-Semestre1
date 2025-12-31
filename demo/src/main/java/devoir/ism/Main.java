@@ -16,11 +16,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Repositories
         CommandeRepository commandeRepository = new CommandeRepository();
         ProduitRepository produitRepository = new ProduitRepository();
 
-        // Services
         PaymentService paymentService = new WavePaymentService();
         CommandeService commandeService = new CommandeService(commandeRepository, paymentService);
 
@@ -52,7 +50,7 @@ public class Main {
                     break;
 
                 default:
-                    System.out.println("❌ Choix invalide !");
+                    System.out.println(" Choix invalide !");
             }
         }
 

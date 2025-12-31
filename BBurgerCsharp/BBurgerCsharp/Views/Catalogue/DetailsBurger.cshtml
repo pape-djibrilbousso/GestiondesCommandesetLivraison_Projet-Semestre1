@@ -1,0 +1,73 @@
+@model BBurgerCsharp.Web.Models.ViewModels.DetailsBurgerViewModel
+
+@{
+    ViewData["Title"] = Model.Burger.Nom;
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index">Catalogue</a></li>
+        <li class="breadcrumb-item active">@Model.Burger.Nom</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-5">
+        <img src="@Model.Burger.Image" class="img-fluid rounded shadow" alt="@Model.Burger.Nom">
+    </div>
+    <div class="col-md-7">
+        <h1>@Model.Burger.Nom</h1>
+        <h3 class="text-danger mb-4">@Model.Burger.PrixFormate</h3>
+
+        <form asp-controller="Panier" asp-action="AjouterBurger" method="post">
+            <input type="hidden" name="id" value="@Model.Burger.Id" />
+
+            <!-- Proposition de compléments -->
+            <h5 class="mb-3"><i class="fas fa-plus-circle"></i> Ajouter des compléments</h5>
+
+            @if (Model.Boissons.Any())
+            {
+                <h6>Boissons</h6>
+                <div class="row mb-3">
+                    @foreach (var boisson in Model.Boissons)
+                    {
+                        <div class="col-md-6 mb-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" 
+                                       name="complementIds" value="@boisson.Id" id="boisson@(boisson.Id)">
+                                <label class="form-check-label" for="boisson@(boisson.Id)">
+                                    @boisson.Nom <span class="text-muted">(+@boisson.PrixFormate)</span>
+                                </label>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+
+            @if (Model.Frites.Any())
+            {
+                <h6>Frites</h6>
+                <div class="row mb-3">
+                    @foreach (var frites in Model.Frites)
+                    {
+                        <div class="col-md-6 mb-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" 
+                                       name="complementIds" value="@frites.Id" id="frites@(frites.Id)">
+                                <label class="form-check-label" for="frites@(frites.Id)">
+                                    @frites.Nom <span class="text-muted">(+@frites.PrixFormate)</span>
+                                </label>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+
+            <div class="d-grid gap-2 mt-4">
+                <button type="submit" class="btn btn-danger btn-lg">
+                    <i class="fas fa-shopping-cart"></i> Ajouter au panier
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

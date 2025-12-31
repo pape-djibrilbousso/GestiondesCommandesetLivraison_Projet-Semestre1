@@ -1,0 +1,110 @@
+@model List<BBurgerCsharp.Web.Models.Commande>
+
+@{
+    ViewData["Title"] = "Mes Commandes";
+}
+
+<h1 class="mb-4"><i class="fas fa-history"></i> Mes Commandes</h1>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info text-center py-5">
+        <i class="fas fa-inbox fa-3x mb-3"></i>
+        <h4>Vous n'avez pas encore de commandes</h4>
+        <a asp-controller="Catalogue" asp-action="Index" class="btn btn-danger mt-3">
+            <i class="fas fa-utensils"></i> Commencer à commander
+        </a>
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead class="table-danger">
+                <tr>
+                    <th>N° Commande</th>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Montant</th>
+                    <th>État</th>
+                    <th>Paiement</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var commande in Model)
+                {
+                    <tr>
+                        <td><strong>#@commande.Id</strong></td>
+                        <td>@commande.DateCommande.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>
+                            @if (commande.TypeLivraison == "sur_place")
+                            {
+                                <span class="badge bg-info">
+                                    <i class="fas fa-utensils"></i> Sur place
+                                </span>
+                            }
+                            else if (commande.TypeLivraison == "a_emporter")
+                            {
+                                <span class="badge bg-warning text-dark">
+                                    <i class="fas fa-box"></i> À emporter
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-primary">
+                                    <i class="fas fa-motorcycle"></i> Livraison
+                                </span>
+                            }
+                        </td>
+                        <td><strong>@commande.MontantFormate</strong></td>
+                        <td>
+                            @switch (commande.Etat)
+                            {
+                                case "en_cours":
+                                    <span class="badge bg-secondary">
+                                        <i class="fas fa-clock"></i> En cours
+                                    </span>
+                                    break;
+                                case "validee":
+                                    <span class="badge bg-success">
+                                        <i class="fas fa-check"></i> Validée
+                                    </span>
+                                    break;
+                                case "terminee":
+                                    <span class="badge bg-dark">
+                                        <i class="fas fa-check-double"></i> Terminée
+                                    </span>
+                                    break;
+                                case "annulee":
+                                    <span class="badge bg-danger">
+                                        <i class="fas fa-times"></i> Annulée
+                                    </span>
+                                    break;
+                            }
+                        </td>
+                        <td>
+                            @if (commande.Paiement != null)
+                            {
+                                <span class="badge bg-success">
+                                    <i class="fas fa-check-circle"></i> Payée (@commande.Paiement.MoyenPaiement)
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-warning text-dark">
+                                    <i class="fas fa-exclamation-circle"></i> Non payée
+                                </span>
+                            }
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@commande.Id" class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-eye"></i> Détails
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

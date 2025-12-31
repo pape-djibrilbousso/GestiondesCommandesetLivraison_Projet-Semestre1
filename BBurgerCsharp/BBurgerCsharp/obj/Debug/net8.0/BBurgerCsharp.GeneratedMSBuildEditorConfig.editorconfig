@@ -1,0 +1,87 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = BBurgerCsharp.Web
+build_property.RootNamespace = BBurgerCsharp.Web
+build_property.ProjectDir = C:\Users\Bousso\OneDrive\Desktop\L3_25-26\Projet_Semestre1\BBurgerCsharp\BBurgerCsharp\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Bousso\OneDrive\Desktop\L3_25-26\Projet_Semestre1\BBurgerCsharp\BBurgerCsharp
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/Bousso/OneDrive/Desktop/L3_25-26/Projet_Semestre1/BBurgerCsharp/BBurgerCsharp/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bousso/OneDrive/Desktop/L3_25-26/Projet_Semestre1/BBurgerCsharp/BBurgerCsharp/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bousso/OneDrive/Desktop/L3_25-26/Projet_Semestre1/BBurgerCsharp/BBurgerCsharp/Views/Catalogue/DetailsBurger.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ3VlXERldGFpbHNCdXJnZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bousso/OneDrive/Desktop/L3_25-26/Projet_Semestre1/BBurgerCsharp/BBurgerCsharp/Views/Catalogue/DetailsMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ3VlXERldGFpbHNNZW51LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bousso/OneDrive/Desktop/L3_25-26/Projet_Semestre1/BBurgerCsharp/BBurgerCsharp/Views/Catalogue/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ3VlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bousso/OneDrive/Desktop/L3_25-26/Projet_Semestre1/BBurgerCsharp/BBurgerCsharp/Views/Commande/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWFuZGVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bousso/OneDrive/Desktop/L3_25-26/Projet_Semestre1/BBurgerCsharp/BBurgerCsharp/Views/Commande/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWFuZGVcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bousso/OneDrive/Desktop/L3_25-26/Projet_Semestre1/BBurgerCsharp/BBurgerCsharp/Views/Commande/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWFuZGVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bousso/OneDrive/Desktop/L3_25-26/Projet_Semestre1/BBurgerCsharp/BBurgerCsharp/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bousso/OneDrive/Desktop/L3_25-26/Projet_Semestre1/BBurgerCsharp/BBurgerCsharp/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bousso/OneDrive/Desktop/L3_25-26/Projet_Semestre1/BBurgerCsharp/BBurgerCsharp/Views/Panier/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuaWVyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bousso/OneDrive/Desktop/L3_25-26/Projet_Semestre1/BBurgerCsharp/BBurgerCsharp/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bousso/OneDrive/Desktop/L3_25-26/Projet_Semestre1/BBurgerCsharp/BBurgerCsharp/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bousso/OneDrive/Desktop/L3_25-26/Projet_Semestre1/BBurgerCsharp/BBurgerCsharp/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bousso/OneDrive/Desktop/L3_25-26/Projet_Semestre1/BBurgerCsharp/BBurgerCsharp/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bousso/OneDrive/Desktop/L3_25-26/Projet_Semestre1/BBurgerCsharp/BBurgerCsharp/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-7hy082e033

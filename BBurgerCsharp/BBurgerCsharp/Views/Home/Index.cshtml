@@ -1,0 +1,86 @@
+﻿@{
+    ViewData["Title"] = "Accueil";
+    var burgers = ViewBag.Burgers as List<BBurgerCsharp.Web.Models.Burger> ?? new List<BBurgerCsharp.Web.Models.Burger>();
+    var menus = ViewBag.Menus as List<BBurgerCsharp.Web.Models.ViewModels.MenuAvecPrix> ?? new List<BBurgerCsharp.Web.Models.ViewModels.MenuAvecPrix>();
+}
+
+<!-- Hero Section -->
+<div class="text-center py-5 bg-danger text-white rounded mb-4">
+    <h1 class="display-4"><i class="fas fa-hamburger"></i> Brasil Burger</h1>
+    <p class="lead">Les meilleurs burgers de Dakar !</p>
+    <a asp-controller="Catalogue" asp-action="Index" class="btn btn-warning btn-lg">
+        <i class="fas fa-utensils"></i> Voir le menu
+    </a>
+</div>
+
+<!-- Burgers en vedette -->
+<div class="row mb-5">
+    <div class="col-12">
+        <h2 class="mb-4"><i class="fas fa-fire"></i> Nos Burgers</h2>
+    </div>
+    @foreach (var burger in burgers.Take(4))
+    {
+        <div class="col-md-3 mb-4">
+            <div class="card h-100">
+                <img src="@burger.Image" class="card-img-top" alt="@burger.Nom" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">@burger.Nom</h5>
+                    <p class="card-text text-danger fw-bold">@burger.PrixFormate</p>
+                    <a asp-controller="Catalogue" asp-action="DetailsBurger" asp-route-id="@burger.Id" 
+                       class="btn btn-danger btn-sm">
+                        <i class="fas fa-eye"></i> Voir détails
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<!-- Menus en vedette -->
+<div class="row mb-5">
+    <div class="col-12">
+        <h2 class="mb-4"><i class="fas fa-box"></i> Nos Menus</h2>
+    </div>
+    @foreach (var menuAvecPrix in menus.Take(4))
+    {
+        <div class="col-md-3 mb-4">
+            <div class="card h-100">
+                <img src="@menuAvecPrix.Menu.Image" class="card-img-top" alt="@menuAvecPrix.Menu.Nom" 
+                     style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">@menuAvecPrix.Menu.Nom</h5>
+                    <p class="card-text text-danger fw-bold">@menuAvecPrix.PrixTotal.ToString("N0") FCFA</p>
+                    <a asp-controller="Catalogue" asp-action="DetailsMenu" asp-route-id="@menuAvecPrix.Menu.Id" 
+                       class="btn btn-danger btn-sm">
+                        <i class="fas fa-eye"></i> Voir détails
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<!-- Avantages -->
+<div class="row text-center mb-5">
+    <div class="col-md-4">
+        <div class="p-4">
+            <i class="fas fa-truck fa-3x text-danger mb-3"></i>
+            <h4>Livraison rapide</h4>
+            <p>Livraison dans toute la ville de Dakar</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="p-4">
+            <i class="fas fa-star fa-3x text-warning mb-3"></i>
+            <h4>Qualité garantie</h4>
+            <p>Ingrédients frais et de qualité</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="p-4">
+            <i class="fas fa-mobile-alt fa-3x text-danger mb-3"></i>
+            <h4>Paiement mobile</h4>
+            <p>Wave et Orange Money acceptés</p>
+        </div>
+    </div>
+</div>

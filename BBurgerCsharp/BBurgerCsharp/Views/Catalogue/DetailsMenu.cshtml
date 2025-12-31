@@ -1,0 +1,85 @@
+@model BBurgerCsharp.Web.Models.ViewModels.DetailsMenuViewModel
+
+@{
+    ViewData["Title"] = Model.Menu.Nom;
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index">Catalogue</a></li>
+        <li class="breadcrumb-item active">@Model.Menu.Nom</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-5">
+        <img src="@Model.Menu.Image" class="img-fluid rounded shadow" alt="@Model.Menu.Nom">
+        <div class="badge bg-warning text-dark fs-6 mt-3 p-2">
+            <i class="fas fa-gift"></i> Menu Complet
+        </div>
+    </div>
+    <div class="col-md-7">
+        <h1>@Model.Menu.Nom</h1>
+        <h3 class="text-danger mb-4">@Model.PrixTotal.ToString("N0") FCFA</h3>
+
+        <!-- Composition du menu -->
+        <div class="card mb-4">
+            <div class="card-header bg-light">
+                <h5 class="mb-0"><i class="fas fa-list"></i> Composition du menu</h5>
+            </div>
+            <div class="card-body">
+                @if (Model.Burgers.Any())
+                {
+                    <h6><i class="fas fa-hamburger text-danger"></i> Burger</h6>
+                    <ul class="list-unstyled mb-3">
+                        @foreach (var burger in Model.Burgers)
+                        {
+                            <li class="mb-2">
+                                <strong>@burger.Nom</strong>
+                                <span class="text-muted float-end">@burger.PrixFormate</span>
+                            </li>
+                        }
+                    </ul>
+                }
+
+                @if (Model.Complements.Any())
+                {
+                    <h6><i class="fas fa-plus-circle text-warning"></i> Compléments</h6>
+                    <ul class="list-unstyled">
+                        @foreach (var complement in Model.Complements)
+                        {
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success"></i> @complement.Nom
+                                <span class="text-muted float-end">@complement.PrixFormate</span>
+                            </li>
+                        }
+                    </ul>
+                }
+
+                <hr>
+                <div class="d-flex justify-content-between align-items-center">
+                    <strong class="fs-5">Prix total :</strong>
+                    <span class="text-danger fs-4 fw-bold">@Model.PrixTotal.ToString("N0") FCFA</span>
+                </div>
+                <p class="text-muted small mb-0">
+                    <i class="fas fa-info-circle"></i> Le prix du menu est la somme de ses composants
+                </p>
+            </div>
+        </div>
+
+        <form asp-controller="Panier" asp-action="AjouterMenu" method="post">
+            <input type="hidden" name="id" value="@Model.Menu.Id" />
+            
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-warning btn-lg">
+                    <i class="fas fa-shopping-cart"></i> Ajouter au panier
+                </button>
+            </div>
+        </form>
+
+        <div class="alert alert-info mt-3">
+            <i class="fas fa-gift"></i> <strong>Économisez !</strong> 
+            Ce menu est plus avantageux que d'acheter les produits séparément.
+        </div>
+    </div>
+</div>

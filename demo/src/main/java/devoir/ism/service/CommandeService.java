@@ -1,6 +1,7 @@
 package devoir.ism.service;
 
 import devoir.ism.entity.Commande;
+import devoir.ism.entity.Complement;
 import devoir.ism.entity.EtatCommande;
 import devoir.ism.repository.CommandeRepository;
 
@@ -15,6 +16,13 @@ public class CommandeService {
         this.paymentService = paymentService;
     }
 
+    public void ajouterComplement(Commande commande, Complement complement) {
+    if (commande.getEtat() == EtatCommande.EN_ATTENTE) {
+        commande.ajouterComplement(complement);
+    } else {
+        System.out.println("Impossible d’ajouter un complément à cette commande");
+        }
+    }
     public void payerCommande(Commande commande) {
 
         boolean paiementOK = paymentService.effectuerPaiement(commande);
